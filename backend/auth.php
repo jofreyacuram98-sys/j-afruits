@@ -1,18 +1,12 @@
 <?php
-// 1. Turn on error reporting so you don't get a white screen if something breaks
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// Update this section in auth.php
+$host = getenv('DB_HOST') ?: 'localhost';
+$db   = getenv('DB_NAME') ?: 'ja_fruits';
+$user = getenv('DB_USER') ?: 'root';
+$pass = getenv('DB_PASSWORD') ?: '';
+$port = getenv('DB_PORT') ?: '3306';
 
-session_start();
-
-$host = 'localhost';
-$db   = 'ja_fruits';
-$user = 'root'; 
-$pass = '';     
-$charset = 'utf8mb4';
-
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$dsn = "mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4";
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -21,7 +15,7 @@ $options = [
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (\PDOException $e) {
-    die("Database Connection failed: " . $e->getMessage());
+    die("Database Connection failed: Please check your configuration and try again.");
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
