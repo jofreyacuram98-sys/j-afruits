@@ -368,7 +368,7 @@ $mod = $_GET['mod'] ?? 'dashboard';
 
                         <div style="background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #3498db;">
                             <p style="color: #888; font-size: 14px; margin-bottom: 10px;">Total Orders</p>
-                            <h3 style="font-size: 24px;"><?= $total_orders ?></h3>
+                            <h3 style="font-size: 24px;"><?= number_format($total_orders ?? 0) ?></h3>
                         </div>
 
                         <div style="background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #9b59b6;">
