@@ -22,21 +22,98 @@ $mod = $_GET['mod'] ?? 'dashboard';
     <title>Admin Panel - J.A Fruits</title>
     <link rel="stylesheet" href="../globals.css">
     <link rel="stylesheet" href="../style.css">
-    <style>
-        .admin-container { display: flex; min-height: 100vh; background: #f4f7f6; }
-        .admin-sidebar { width: 260px; background: #2c3e50; color: white; padding: 20px; }
-        .admin-sidebar h2 { color: var(--primary-green); margin-bottom: 30px; text-align: center; }
-        .admin-nav { list-style: none; padding: 0; }
-        .admin-nav li a { display: block; padding: 12px; color: #bdc3c7; text-decoration: none; border-radius: 8px; margin-bottom: 5px; }
-        .admin-nav li a:hover, .admin-nav li a.active { background: #34495e; color: white; }
-        .admin-content { flex: 1; padding: 40px; overflow-y: auto; }
-        .data-table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .data-table th { background: #f8f9fa; padding: 15px; text-align: left; border-bottom: 2px solid #eee; }
-        .data-table td { padding: 15px; border-bottom: 1px solid #eee; }
-        .btn-sm { padding: 5px 10px; font-size: 12px; border-radius: 5px; cursor: pointer; border: none; }
-        .btn-edit { background: #3498db; color: white; }
-        .btn-view { background: #2ecc71; color: white; }
-    </style>
+  <style>
+    .admin-container { 
+        display: flex; 
+        min-height: 100vh; 
+        /* Adds a dark, semi-transparent gradient over your background image */
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                    url('../images/full-frame-of-a-variety-of-fruits-royalty-free-image-1747747836.jpg') no-repeat center center fixed; 
+        background-size: cover;
+        color: #fff; /* Ensures text is light to contrast with the dark overlay */
+    }
+    
+    .admin-sidebar { 
+        width: 260px; 
+        background: rgba(44, 62, 80, 0.85); /* Semi-transparent solid color */
+        color: white; 
+        padding: 20px; 
+    }
+    
+    .admin-sidebar h2 { 
+        color: var(--primary-green); 
+        margin-bottom: 30px; 
+        text-align: center; 
+    }
+    
+    .admin-nav { 
+        list-style: none; 
+        padding: 0; 
+    }
+    
+    .admin-nav li a { 
+        display: block; 
+        padding: 12px; 
+        color: #bdc3c7; 
+        text-decoration: none; 
+        border-radius: 8px; 
+        margin-bottom: 5px; 
+    }
+    
+    .admin-nav li a:hover, .admin-nav li a.active { 
+        background: #34495e; 
+        color: white; 
+    }
+    
+    .admin-content { 
+        flex: 1; 
+        padding: 40px; 
+        overflow-y: auto; 
+        background: rgba(244, 247, 246, 0.9); /* Slight transparency for the container to let the background peak through */
+        border-radius: 10px;
+        margin: 20px; /* Separates the content box from the edges */
+        color: #333; /* Dark text for readability on light content panel */
+    }
+    
+    .data-table { 
+        width: 100%; 
+        border-collapse: collapse; 
+        background: white; 
+        border-radius: 10px; 
+        overflow: hidden; 
+        box-shadow: 0 5px 15px rgba(0,0,0,0.15); 
+    }
+    
+    .data-table th { 
+        background: #f8f9fa; 
+        padding: 15px; 
+        text-align: left; 
+        border-bottom: 2px solid #eee; 
+    }
+    
+    .data-table td { 
+        padding: 15px; 
+        border-bottom: 1px solid #eee; 
+    }
+    
+    .btn-sm { 
+        padding: 5px 10px; 
+        font-size: 12px; 
+        border-radius: 5px; 
+        cursor: pointer; 
+        border: none; 
+    }
+    
+    .btn-edit { 
+        background: #3498db; 
+        color: white; 
+    }
+    
+    .btn-view { 
+        background: #2ecc71; 
+        color: white; 
+    }
+</style>
 </head>
 <body>
     <div class="admin-container">
